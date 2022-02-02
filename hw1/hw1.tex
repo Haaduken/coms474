@@ -50,9 +50,9 @@ Briefly explain why (1-3 sentences).
                         \emph{Image from page 8 of January 27th's Notes}
                     \end{center}
           \end{itemize}
-    \item The relationship between the features  $\{X_1 ... X_p\}$ and the response $(Y)$ is highly non-linear.
+    \item The relationship between the features $\{X_1 ... X_p\}$ and the response $(Y)$ is highly non-linear.
           \begin{itemize}
-              \item waffle
+              \item As the predicted model has more features, the response will look less and less like a linear model, this is because the model will start to overfit the data. For example, if there is 16 data points, with 20 features vs 16 data points but only 5 features, the 20 feature one will overfit the data and most likely take in the noise value as is instead of as variance like the 5 feature model may.
           \end{itemize}
     \item The variance of the noise terms, $\{X_1 ... X_p\}$, is extremely high
           \begin{itemize}
@@ -98,7 +98,33 @@ We want to learn a model to predict Y, let N denote the number of samples of dat
 \end{center}
 make sure to check you found a minimizing $\beta_{0}$, not a maximizing $\beta_{0}$.\\
 
+\begin{center}
+    \[
+        \beta_{0}^{*} = \underset{\substack{\\ \beta_{0} \epsilon \mathbb{R} } } {\text{arg min} } \frac{1}{n} \sum_{i = 1}^{n}(Y(i) - \beta_{0})^{2} \text{.}
+    \]\\
+    \[
+        \hat{y} = \frac{d}{db}(\frac{1}{n}((Y(1)-\beta_1)^2 + (Y(2)-\beta_2)^2 + ... +(Y(n)-\beta_n)^2))
+    \]\\
+    \[
+        \hat{y'} = \frac{1}{n}((2(Y(1)-\beta_1)) + (2(Y(2)-\beta_2)) + ... + (2(Y(n)-\beta_n)))
+    \]\\
+    \[
+        \hat{y'} = \frac{1}{n}(2Y(1) - 2\beta_1 + 2Y(2) - 2\beta_2 + ... + 2Y(n) - 2\beta_n)
+    \]\\
+    \[
+        \hat{y'} = \frac{1}{n}(2\sum_{i=1}^{n}(Y(i)) - 2(\beta_1 + \beta_2 + ... + \beta_n)
+    \]\\
+    \[
+        \hat{y'} = \frac{2}{n}\sum_{i=1}^{n}(Y(i)) - \frac{2}{n}(\beta_1 + \beta_2 + ... + \beta_n)
+    \]\\
+    \[
+        \hat{y''} = \frac{d}{db}\hat{y'}\Rightarrow \frac{2}{n}\sum_{i=1}^{n}(Y(i)) \Rightarrow 2 > 0 \text{ for all }\beta
+    \]\\
+    Therefore
+    \[
 
+    \]
+\end{center}
 
 %--/Paper--
 
