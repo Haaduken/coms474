@@ -1,0 +1,131 @@
+\documentclass[12pt]{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{amsmath}
+\usepackage{enumitem}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\title{ COMS 474\\Homework 2 }
+\author{ Haadi Majeed }
+\date{Spring 2022}
+
+\usepackage{cancel}
+\usepackage[margin=4cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\lhead{COMS 474}
+\chead{Haadi Majeed}
+\rhead{Page \thepage}
+
+\begin{document}
+\maketitle
+\pagebreak
+
+% Optional TOC
+\tableofcontents
+\pagebreak
+\section{Directions}
+• Due: Thursday February 10, 2022 at 9pm. Late submissions will be accepted for
+24 hours after that time, with a 15\% penalty. (the enforcement is strict, beginning at
+9:01pm, except for extreme situations; having a poor wifi connection or minor computer
+problems is not sufficient for the penalty to be waived.)
+\\• Upload the homework to Canvas as a single pdf file.
+\\• If the graders cannot easily read your submission (writing is illegible, image is too dark,
+or if the contrast is too low) then you might receive a zero or only partial credit.
+\\• Any non-administrative questions must be asked in office hours or (if a brief response
+is sufficient) Piazza.
+
+\pagebreak
+\section{Problem 1}
+ [13 points total (6,3,4)]\\
+
+Book problem Chapter 3, problem 3 “Suppose we have a data set with five predictors, $X_1 = GPA, X_2 = IQ, X_3 = Level \text{ 1 for College and 0 for High School}, X_4 = \text{ Interaction between GPA and IQ, and } X_5 = \text{Interaction between GPA and Level.}$  The response is starting salary after graduation (in thousands of dollars).  Suppose we use least squares to fit the model, and get $ \hat{\beta_0} = 50, \hat{\beta_1} = 20, \hat{\beta_2} = 0.07, \hat{\beta_3} = 35, \hat{\beta_4} = 0.01, \hat{\beta_5} = -10$” \newline
+Note: for interactions, use products, e.g. $X_4(i) = GPA(i) * IQ(i)$
+
+\begin{enumerate}
+    \item Which answer is correct, and why?
+          \begin{enumerate}[label=(\roman*)]
+              \item For a fixed value of IQ and GPA, high school graduates earn more, on average, than college graduates.
+              \item For a fixed value of IQ and GPA, college graduates earn more, on average, than high school graduates.
+              \item For a fixed value of IQ and GPA, high school graduates earn more, on average, than college graduates provided that the GPA is high enough.
+              \item For a fixed value of IQ and GPA, college graduates earn more, on average, than high school graduates provided    that the GPA is high enough.
+          \end{enumerate}
+    \item Predict the salary of a college graduate with IQ of 110 and a GPA of 4.0.
+    \item True or false: Since the coefficient for the GPA/IQ interaction term is very small, there is very little evidence of an interaction effect. Justify your answer.
+\end{enumerate}
+\pagebreak
+\section{Problem 2}
+ [12 points total (3 points each)]\\
+Book problem Chapter 3, problem 4 “I collect a set of data (n = 100 observations) containing a single predictor and a quantitative response. I then fit a linear regression model to the data, as well as a separate cubic regression, i.e. $Y = \beta_0 + \beta_1X + \beta_2X^2 + \beta_3X^3 + \epsilon$.”
+
+\begin{enumerate}
+    \item Suppose that the true relationship between X and Y is linear, i.e. $Y = \beta_0 + \beta_1X + \epsilon$.  Consider the training residual sum ofsquares (RSS) for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.
+    \item Answer (a) using test rather than training RSS.
+    \item Suppose that the true relationship between X and Y is not linear,but we don't know how far it is from linear. Consider the training RSS for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.
+    \item Answer (c) using test rather than training RSS.
+\end{enumerate}
+
+\pagebreak
+\section{Problem 3}
+Suppose we have a data set with one feature $X$ to predict another feature $Y$. Let $n$ denote the number of samples. Let $X$ and $Y$ denote the average values of $X$ and $Y$ respectively in the dataset:
+
+\begin{center}
+    \[
+        \bar{X} = \frac{1}{n}\sum_{i = 1}^{n}X(i)
+        \tab
+        \bar{Y} = \frac{1}{n}\sum_{i = 1}^{n}Y(i)
+    \]
+\end{center}
+
+Let $\beta_{0}^{*}$ and $\beta_{0}^{*}$ denote the coefficients for the ordinary least squares (O.L.S) solution,
+
+\begin{center}
+    \[
+        \{\beta_{0}^{*}, \beta_{1}^{*}\} = \hat{f}(x,y) = \underset{\{\beta_{0}^{*}, \beta_{1}^{*}\}}{\text{arg min }}\frac{1}{n}\sum_{i = 1}^{n} \bigg( Y(i) - \beta_0 + \beta_1*X(i) \bigg) ^2
+    \]
+\end{center}
+
+Their values are
+
+\begin{center}
+    \[
+        \beta_{0}^{*} = \bar{Y} - \beta_{1}^{*}\bar{X}
+        \tab
+        \beta_{1}^{*} = \frac{\sum_{i = 1}^{n}(X(i) - \bar{X})(Y(i)-\bar{Y})}{\sum_{i = 1}^{n}(X(i)-\bar{X})^2}
+    \]
+\end{center}
+
+Using those formulas, calculate the O.L.S. model's prediction for $ X = \bar{X}$ (i.e., the prediction $\bar{Y}$ for a new sample for whose $X$ feature has the value $\bar{X}$)
+
+\pagebreak
+\section{Problem 4}
+Book problem Chapter 6, problem 1 "We perform best subset \dots"\\
+
+Notes regarding the book's pseudocode for Algorithms 6.1-6.3:
+
+\begin{itemize}
+    \item "RSS” stands for “residual sum of squares” which is the (un-normalized) MSE
+          \begin{center}
+              $RSS = \sum_{i = 1}^{n} ( Y(i) - \overline{Y} )^{2}$
+          \end{center}
+          In the book's pseudo-codes, “RSS” refers to training set RSS.
+
+    \item “cross-validated prediction error” \- you can read this as “Validation set MSE.”
+    \item “$R^2$” and “adjusted $R^2$” \- you can ignore these for this homework.
+\end{itemize}
+
+%--/Paper--
+
+\end{document}
