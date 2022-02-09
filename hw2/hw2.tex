@@ -36,18 +36,6 @@
 % Optional TOC
 % \tableofcontents
 % \pagebreak
-\section*{Directions}
-• Due: Thursday February 10, 2022 at 9pm. Late submissions will be accepted for
-24 hours after that time, with a 15\% penalty. (the enforcement is strict, beginning at
-9:01pm, except for extreme situations; having a poor wifi connection or minor computer
-problems is not sufficient for the penalty to be waived.)
-\\• Upload the homework to Canvas as a single pdf file.
-\\• If the graders cannot easily read your submission (writing is illegible, image is too dark,
-or if the contrast is too low) then you might receive a zero or only partial credit.
-\\• Any non-administrative questions must be asked in office hours or (if a brief response
-is sufficient) Piazza.
-
-\pagebreak
 \section*{Problem 1}
  [13 points total (6,3,4)]\\
 Book problem Chapter 3, problem 3 “Suppose we have a data set with five predictors, $X_1 = GPA, X_2 = IQ, X_3 = Level \text{ 1 for College and 0 for High School}, X_4 = \text{ Interaction between GPA and IQ, and } X_5 = \text{Interaction between GPA and Level.}$  The response is starting salary after graduation (in thousands of dollars).  Suppose we use least squares to fit the model, and get $ \hat{\beta_0} = 50, \hat{\beta_1} = 20, \hat{\beta_2} = 0.07, \hat{\beta_3} = 35, \hat{\beta_4} = 0.01, \hat{\beta_5} = -10$” \newline
@@ -92,7 +80,7 @@ Book problem Chapter 3, problem 4 “I collect a set of data (n = 100 observatio
 \begin{enumerate}
     \item Suppose that the true relationship between X and Y is linear, i.e. $Y = \beta_0 + \beta_1X + \epsilon$.  Consider the training residual sum of squares (RSS) for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.\\ For the training data, it is harder to tell since a model with 3 features would be more flexible than a linear one, thus the RSS should be lesser in comparison. However, since it truly is linear, we may be fitting excessively and including noise/error.
     \item Answer (a) using test rather than training RSS.\\ For the test set of data, it would be expected that the RSS would be smaller for linear regression verses the cubic model and will fit the data better. RSS may have been low, but at the cost of overfitting the training data for better predicting future data.
-    \item Suppose that the true relationship between X and Y is not linear,but we don't know how far it is from linear. Consider the training RSS for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.\\
+    \item Suppose that the true relationship between X and Y is not linear,but we don't know how far it is from linear. Consider the training RSS for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.\\ Polynomial models has lower training RSS due to the higher flexibility it has over linear
     \item Answer (c) using test rather than training RSS.
 \end{enumerate}
 
