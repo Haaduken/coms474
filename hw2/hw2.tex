@@ -76,11 +76,11 @@ Note: for interactions, use products, e.g. $X_4(i) = GPA(i) * IQ(i)$
           \end{center}
           from this we can get down to if the GPA is less than 3.5, then college students would have more, however with a GPA of 3.5 or greater, a highschool student would have more.
     \item Predict the salary of a college graduate with IQ of 110 and a GPA of 4.0.\\
-          Using the formula derived from above and assigning the following: $X_2 = 110$ and $X_1 = 4.0$ we get
+          Using the formula derived from above and assigning the following: $X_2 = 110$ and $X_1 = 4.0$ we get\\
           $\hat{Y} = 85 + 10 * (4.0) + 0.07 * (110) + 0.01 * (4.0 * 110)$\\
           $\hat{Y} = 137.1$ or about \$137,100
     \item True or false: Since the coefficient for the GPA/IQ interaction term is very small, there is very little evidence of an interaction effect. Justify your answer.\\
-          False, the coefficient does not provide evidence for or against the interaction. We would need to test for a proper conclusion
+          False, the coefficient does not provide evidence for or against the interaction. We would need to test for a proper conclusion.
 \end{enumerate}
 
 
@@ -91,8 +91,8 @@ Book problem Chapter 3, problem 4 “I collect a set of data (n = 100 observatio
 
 \begin{enumerate}
     \item Suppose that the true relationship between X and Y is linear, i.e. $Y = \beta_0 + \beta_1X + \epsilon$.  Consider the training residual sum of squares (RSS) for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.\\ For the training data, it is harder to tell since a model with 3 features would be more flexible than a linear one, thus the RSS should be lesser in comparison. However, since it truly is linear, we may be fitting excessively and including noise/error.
-    \item Answer (a) using test rather than training RSS.
-    \item Suppose that the true relationship between X and Y is not linear,but we don't know how far it is from linear. Consider the training RSS for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.
+    \item Answer (a) using test rather than training RSS.\\ For the test set of data, it would be expected that the RSS would be smaller for linear regression verses the cubic model and will fit the data better. RSS may have been low, but at the cost of overfitting the training data for better predicting future data.
+    \item Suppose that the true relationship between X and Y is not linear,but we don't know how far it is from linear. Consider the training RSS for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.\\
     \item Answer (c) using test rather than training RSS.
 \end{enumerate}
 
