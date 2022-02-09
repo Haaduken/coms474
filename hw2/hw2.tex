@@ -34,9 +34,9 @@
 \pagebreak
 
 % Optional TOC
-\tableofcontents
-\pagebreak
-\section{Directions}
+% \tableofcontents
+% \pagebreak
+\section*{Directions}
 • Due: Thursday February 10, 2022 at 9pm. Late submissions will be accepted for
 24 hours after that time, with a 15\% penalty. (the enforcement is strict, beginning at
 9:01pm, except for extreme situations; having a poor wifi connection or minor computer
@@ -48,9 +48,8 @@ or if the contrast is too low) then you might receive a zero or only partial cre
 is sufficient) Piazza.
 
 \pagebreak
-\section{Problem 1}
+\section*{Problem 1}
  [13 points total (6,3,4)]\\
-
 Book problem Chapter 3, problem 3 “Suppose we have a data set with five predictors, $X_1 = GPA, X_2 = IQ, X_3 = Level \text{ 1 for College and 0 for High School}, X_4 = \text{ Interaction between GPA and IQ, and } X_5 = \text{Interaction between GPA and Level.}$  The response is starting salary after graduation (in thousands of dollars).  Suppose we use least squares to fit the model, and get $ \hat{\beta_0} = 50, \hat{\beta_1} = 20, \hat{\beta_2} = 0.07, \hat{\beta_3} = 35, \hat{\beta_4} = 0.01, \hat{\beta_5} = -10$” \newline
 Note: for interactions, use products, e.g. $X_4(i) = GPA(i) * IQ(i)$
 
@@ -60,25 +59,45 @@ Note: for interactions, use products, e.g. $X_4(i) = GPA(i) * IQ(i)$
               \item For a fixed value of IQ and GPA, high school graduates earn more, on average, than college graduates.
               \item For a fixed value of IQ and GPA, college graduates earn more, on average, than high school graduates.
               \item For a fixed value of IQ and GPA, high school graduates earn more, on average, than college graduates provided that the GPA is high enough.
-              \item For a fixed value of IQ and GPA, college graduates earn more, on average, than high school graduates provided    that the GPA is high enough.
+              \item For a fixed value of IQ and GPA, college graduates earn more, on average, than high school graduates provided that the GPA is high enough.
           \end{enumerate}
-    \item Predict the salary of a college graduate with IQ of 110 and a GPA of 4.0.
-    \item True or false: Since the coefficient for the GPA/IQ interaction term is very small, there is very little evidence of an interaction effect. Justify your answer.
+          Answer $iii$ is correct, by expanding the formula we get
+          \begin{center}
+              $\hat{Y} = \beta_0 + \beta_1 * (X_1) +\beta_2 * (X_2) +\beta_3 * (X_3) +\beta_4 * (X_4) +\beta_5 * (X_5)$
+              \\And we know $X_4 = X_1 * X_2$ and that $X_5 = X_1 * X_3$ we can sub these in along with the $\beta$ values to get\\
+              $\hat{Y} = 50 + 20 * (X_1) + 0.07 * (X_2) + 35 * (X_3) + 0.01 * (X_1 * X_2) -10 * (X_1 * X_3)$
+              \\From there we can plug in values we know, such as $X_3$ and see how it looks for highschoolers vs college students\\
+              Highschool:\\
+              $\hat{Y} = 50 + 20 * (X_1) + 0.07 * (X_2) + 35 * (0) + 0.01 * (X_1 * X_2) -10 * (X_1 * 0)$\\
+              $\hat{Y} = 50 + 20 * (X_1) + 0.07 * (X_2) + 0.01 * (X_1 * X_2)$
+              \\College:\\
+              $\hat{Y} = 50 + 20 * (X_1) + 0.07 * (X_2) + 35 * (1) + 0.01 * (X_1 * X_2) -10 * (X_1 * 1)$\\
+              $\hat{Y} = 85 + 10 * (X_1) + 0.07 * (X_2) + 0.01 * (X_1 * X_2)$
+          \end{center}
+          from this we can get down to if the GPA is less than 3.5, then college students would have more, however with a GPA of 3.5 or greater, a highschool student would have more.
+    \item Predict the salary of a college graduate with IQ of 110 and a GPA of 4.0.\\
+          Using the formula derived from above and assigning the following: $X_2 = 110$ and $X_1 = 4.0$ we get
+          $\hat{Y} = 85 + 10 * (4.0) + 0.07 * (110) + 0.01 * (4.0 * 110)$\\
+          $\hat{Y} = 137.1$ or about \$137,100
+    \item True or false: Since the coefficient for the GPA/IQ interaction term is very small, there is very little evidence of an interaction effect. Justify your answer.\\
+          False, the coefficient does not provide evidence for or against the interaction. We would need to test for a proper conclusion
 \end{enumerate}
+
+
 \pagebreak
-\section{Problem 2}
+\section*{Problem 2}
  [12 points total (3 points each)]\\
 Book problem Chapter 3, problem 4 “I collect a set of data (n = 100 observations) containing a single predictor and a quantitative response. I then fit a linear regression model to the data, as well as a separate cubic regression, i.e. $Y = \beta_0 + \beta_1X + \beta_2X^2 + \beta_3X^3 + \epsilon$.”
 
 \begin{enumerate}
-    \item Suppose that the true relationship between X and Y is linear, i.e. $Y = \beta_0 + \beta_1X + \epsilon$.  Consider the training residual sum ofsquares (RSS) for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.
+    \item Suppose that the true relationship between X and Y is linear, i.e. $Y = \beta_0 + \beta_1X + \epsilon$.  Consider the training residual sum of squares (RSS) for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.\\ For the training data, it is harder to tell since a model with 3 features would be more flexible than a linear one, thus the RSS should be lesser in comparison. However, since it truly is linear, we may be fitting excessively and including noise/error.
     \item Answer (a) using test rather than training RSS.
     \item Suppose that the true relationship between X and Y is not linear,but we don't know how far it is from linear. Consider the training RSS for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.
     \item Answer (c) using test rather than training RSS.
 \end{enumerate}
 
 \pagebreak
-\section{Problem 3}
+\section*{Problem 3}
 Suppose we have a data set with one feature $X$ to predict another feature $Y$. Let $n$ denote the number of samples. Let $X$ and $Y$ denote the average values of $X$ and $Y$ respectively in the dataset:
 
 \begin{center}
@@ -110,21 +129,36 @@ Their values are
 Using those formulas, calculate the O.L.S. model's prediction for $ X = \bar{X}$ (i.e., the prediction $\bar{Y}$ for a new sample for whose $X$ feature has the value $\bar{X}$)
 
 \pagebreak
-\section{Problem 4}
-Book problem Chapter 6, problem 1 "We perform best subset \dots"\\
-
+\section*{Problem 4}
+Book problem Chapter 6, problem 1 “We perform best subset, orward stepwise, and backward stepwise selection on a single data set. For each approach, we obtain p + 1 models, containing $0, 1, 2, ... p$ predictors.  Explain your answers” \newline
 Notes regarding the book's pseudocode for Algorithms 6.1-6.3:
 
 \begin{itemize}
-    \item "RSS” stands for “residual sum of squares” which is the (un-normalized) MSE
-          \begin{center}
-              $RSS = \sum_{i = 1}^{n} ( Y(i) - \overline{Y} )^{2}$
-          \end{center}
+    \item "RSS” stands for “residual sum of squares” which is the (un-normalized) MSE,\newline
+          $RSS = \sum_{i = 1}^{n} ( Y(i) - \overline{Y} )^{2}$
+
+          \medspace
+
           In the book's pseudo-codes, “RSS” refers to training set RSS.
 
-    \item “cross-validated prediction error” \- you can read this as “Validation set MSE.”
-    \item “$R^2$” and “adjusted $R^2$” \- you can ignore these for this homework.
+    \item “cross-validated prediction error” - you can read this as “Validation set MSE.”
+    \item “$R^2$” and “adjusted $R^2$” - you can ignore these for this homework.
 \end{itemize}
+
+\medspace
+
+\begin{enumerate}
+    \item Which of the three models with k predictors has the smallest \emph{training} RSS?
+    \item Which of the three models with k predictors has the smallest \emph{test} RSS?
+    \item True or False:
+          \begin{enumerate}[label=(\roman*)]
+              \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k +1)-variable model identified by forward stepwise selection.
+              \item The predictors in the k-variable model identified by back-ward stepwise are a subset of the predictors in the (k + 1)-variable model identified by backward stepwise selection.
+              \item The predictors in the k-variable model identified by back-ward stepwise are a subset of the predictors in the (k + 1)-variable model identified by forward stepwise selection.
+              \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k +1)-variable model identified by backward stepwise selection.
+              \item The predictors in the k-variable model identified by best subset are a subset of the predictors in the (k + 1)-variable model identified by best subset selection.
+          \end{enumerate}
+\end{enumerate}
 
 %--/Paper--
 
