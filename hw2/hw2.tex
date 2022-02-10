@@ -87,7 +87,8 @@ Book problem Chapter 3, problem 4 “I collect a set of data (n = 100 observatio
 
 \pagebreak
 \section*{Problem 3}
-Suppose we have a data set with one feature $X$ to predict another feature $Y$. Let $n$ denote the number of samples. Let $X$ and $Y$ denote the average values of $X$ and $Y$ respectively in the dataset:
+ [5 points]\\
+Suppose we have a data set with one feature $X$ to predict another feature $Y$. Let $n$ denote the number of samples. Let $\bar{X}$ and $\bar{Y}$ denote the average values of $X$ and $Y$ respectively in the dataset:
 
 \begin{center}
     \[
@@ -139,21 +140,21 @@ Notes regarding the book's pseudocode for Algorithms 6.1-6.3:
 
 \begin{enumerate}
     \item Which of the three models with k predictors has the smallest \emph{training} RSS?\\
-          Training RSS is minimum for the best subset section
+          A model utilising best subset selection would perform best because it can fit all $2^p$ possible models with $p$ being a predictor. If the critera is minimizing the RSS, no predictor that forward selection or  backward selection could find would not be found by subset selection as well.
     \item Which of the three models with k predictors has the smallest \emph{test} RSS?\\
-          RSS cannot accurately predict with only the training, but a best subset allows for all possible models to be accounted for allowing for the most probable chance of obtaining the best test RSS.
+          Subset selection is most likely to do the best out of the three, as all three will be based on a comboination to minimize the training RSS. As stated before, there is a possiblilty that forward or backward selections can do better than subset, it is unlikely due to how many more models subset selection has to choose from, especially as the number of predictors increases.
     \item True or False:
           \begin{enumerate}[label=(\roman*)]
               \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k +1)-variable model identified by forward stepwise selection.\\
-                    True \tab
+                    True $\rightarrow$ The k+1 model will be identical but with one more predictor
               \item The predictors in the k-variable model identified by back-ward stepwise are a subset of the predictors in the (k + 1)-variable model identified by backward stepwise selection.\\
-                    True
-              \item The predictors in the k-variable model identified by back-ward stepwise are a subset of the predictors in the (k + 1)-variable model identified by forward stepwise selection.\\
-                    False
+                    True $\rightarrow$ The k+1 model will be identical but with one less predictor
+              \item The predictors in the k-variable model identified by backward stepwise are a subset of the predictors in the (k + 1)-variable model identified by forward stepwise selection.\\
+                    False $\rightarrow$ The forward and backward selections will have different start points and paths. Not always true, but has the chance of being true
               \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k +1)-variable model identified by backward stepwise selection.\\
-                    False
+                    False $\rightarrow$ The forward and backward selections will have different start points and paths. Not always true, but has the chance of being true
               \item The predictors in the k-variable model identified by best subset are a subset of the predictors in the (k + 1)-variable model identified by best subset selection.\\
-                    False
+                    False $\rightarrow$ Will not always have the best subset variable of size k+1.
           \end{enumerate}
 \end{enumerate}
 
