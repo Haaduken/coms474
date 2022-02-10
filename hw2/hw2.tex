@@ -80,8 +80,9 @@ Book problem Chapter 3, problem 4 “I collect a set of data (n = 100 observatio
 \begin{enumerate}
     \item Suppose that the true relationship between X and Y is linear, i.e. $Y = \beta_0 + \beta_1X + \epsilon$.  Consider the training residual sum of squares (RSS) for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.\\ For the training data, it is harder to tell since a model with 3 features would be more flexible than a linear one, thus the RSS should be lesser in comparison. However, since it truly is linear, we may be fitting excessively and including noise/error.
     \item Answer (a) using test rather than training RSS.\\ For the test set of data, it would be expected that the RSS would be smaller for linear regression verses the cubic model and will fit the data better. RSS may have been low, but at the cost of overfitting the training data for better predicting future data.
-    \item Suppose that the true relationship between X and Y is not linear,but we don't know how far it is from linear. Consider the training RSS for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.\\ Polynomial models has lower training RSS due to the higher flexibility it has over linear
-    \item Answer (c) using test rather than training RSS.
+    \item Suppose that the true relationship between X and Y is not linear,but we don't know how far it is from linear. Consider the training RSS for the linear regression, and also the training RSS for the cubic regression. Would we expect one to be lower than the other, would we expect them to be the same, or is there not enough information to tell? Justify your answer.\\ Polynomial models has lower training RSS due to the higher flexibility it has over linear. Because it is more flexible it will fit the training data closer and the RSS will reflect that.
+    \item Answer (c) using test rather than training RSS.\\
+          Because there is not enough information to determine which RSS would be lesser, we cannot determine how close or far it is to a linear model. If we had that information we could determine if linear's RSS was lower or if the cubic's was lower. Due to this it is not clear which model would fit most ideally.
 \end{enumerate}
 
 \pagebreak
@@ -118,6 +119,7 @@ Using those formulas, calculate the O.L.S. model's prediction for $ X = \bar{X}$
 
 \pagebreak
 \section*{Problem 4}
+ [16 points total (3,3,10)]\\
 Book problem Chapter 6, problem 1 “We perform best subset, orward stepwise, and backward stepwise selection on a single data set. For each approach, we obtain p + 1 models, containing $0, 1, 2, ... p$ predictors.  Explain your answers” \newline
 Notes regarding the book's pseudocode for Algorithms 6.1-6.3:
 
@@ -136,15 +138,22 @@ Notes regarding the book's pseudocode for Algorithms 6.1-6.3:
 \medspace
 
 \begin{enumerate}
-    \item Which of the three models with k predictors has the smallest \emph{training} RSS?
-    \item Which of the three models with k predictors has the smallest \emph{test} RSS?
+    \item Which of the three models with k predictors has the smallest \emph{training} RSS?\\
+          Training RSS is minimum for the best subset section
+    \item Which of the three models with k predictors has the smallest \emph{test} RSS?\\
+          RSS cannot accurately predict with only the training, but a best subset allows for all possible models to be accounted for allowing for the most probable chance of obtaining the best test RSS.
     \item True or False:
           \begin{enumerate}[label=(\roman*)]
-              \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k +1)-variable model identified by forward stepwise selection.
-              \item The predictors in the k-variable model identified by back-ward stepwise are a subset of the predictors in the (k + 1)-variable model identified by backward stepwise selection.
-              \item The predictors in the k-variable model identified by back-ward stepwise are a subset of the predictors in the (k + 1)-variable model identified by forward stepwise selection.
-              \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k +1)-variable model identified by backward stepwise selection.
-              \item The predictors in the k-variable model identified by best subset are a subset of the predictors in the (k + 1)-variable model identified by best subset selection.
+              \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k +1)-variable model identified by forward stepwise selection.\\
+                    True
+              \item The predictors in the k-variable model identified by back-ward stepwise are a subset of the predictors in the (k + 1)-variable model identified by backward stepwise selection.\\
+                    True
+              \item The predictors in the k-variable model identified by back-ward stepwise are a subset of the predictors in the (k + 1)-variable model identified by forward stepwise selection.\\
+                    False
+              \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k +1)-variable model identified by backward stepwise selection.\\
+                    False
+              \item The predictors in the k-variable model identified by best subset are a subset of the predictors in the (k + 1)-variable model identified by best subset selection.\\
+                    False
           \end{enumerate}
 \end{enumerate}
 
