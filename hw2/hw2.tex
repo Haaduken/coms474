@@ -98,11 +98,11 @@ Suppose we have a data set with one feature $X$ to predict another feature $Y$. 
     \]
 \end{center}
 
-Let $\beta_{0}^{*}$ and $\beta_{0}^{*}$ denote the coefficients for the ordinary least squares (O.L.S) solution,
+Let $\beta_{0}^{*}$ and $\beta_{1}^{*}$ denote the coefficients for the ordinary least squares (O.L.S) solution,
 
 \begin{center}
     \[
-        \{\beta_{0}^{*}, \beta_{1}^{*}\} = \hat{f}(x,y) = \underset{\{\beta_{0}^{*}, \beta_{1}^{*}\}}{\text{arg min }}\frac{1}{n}\sum_{i = 1}^{n} \bigg( Y(i) - \beta_0 + \beta_1*X(i) \bigg) ^2
+        \{\beta_{0}^{*}, \beta_{1}^{*}\} = \hat{f}(x,y) = \underset{\{\beta_{0}^{*}, \beta_{1}^{*}\}}{\text{arg min }}\frac{1}{n}\sum_{i = 1}^{n} \bigg( Y(i) - (\beta_0 + \beta_1*X(i) )\bigg) ^2
     \]
 \end{center}
 
@@ -116,7 +116,21 @@ Their values are
     \]
 \end{center}
 
-Using those formulas, calculate the O.L.S. model's prediction for $ X = \bar{X}$ (i.e., the prediction $\bar{Y}$ for a new sample for whose $X$ feature has the value $\bar{X}$)
+Using those formulas, calculate the O.L.S. model's prediction for $ X = \bar{X}$ (i.e., the prediction $\bar{Y}$ for a new sample for whose $X$ feature has the value $\bar{X}$)\\
+
+\begin{center}
+    \[
+        \beta_0^* = \bar{Y} - \beta_1^* * \bar{X} \rightarrow \frac{1}{n}\sum_{i = 1}^{n}(Y(i) - \beta_1^* * X)
+    \]
+    \[
+        \beta_1^* =
+        \beta_{1}^{*} = \frac{\sum_{i = 1}^{n}(X(i) - \bar{X})(Y(i)-\bar{Y})}{\sum_{i = 1}^{n}(X(i)-\bar{X})^2}
+    \]\[
+        \rightarrow \beta_{1}^{*} = \frac{\sum_{i = 1}^{n}(X(i) - X)(Y(i)-\frac{1}{n}\sum_{i = 1}^{n}Y(i))}{\sum_{i = 1}^{n}(X(i)-X)^2}
+    \]\[
+        \rightarrow \beta_{1}^{*} = \frac{\sum_{i = 1}^{n}(X(i))(\frac{1}{n}Y(i)}{\sum_{i = 1}^{n}(X(i))^2}
+    \]
+\end{center}
 
 \pagebreak
 \section*{Problem 4}
@@ -145,13 +159,13 @@ Notes regarding the book's pseudocode for Algorithms 6.1-6.3:
           Subset selection is most likely to do the best out of the three, as all three will be based on a comboination to minimize the training RSS. As stated before, there is a possiblilty that forward or backward selections can do better than subset, it is unlikely due to how many more models subset selection has to choose from, especially as the number of predictors increases.
     \item True or False:
           \begin{enumerate}[label=(\roman*)]
-              \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k +1)-variable model identified by forward stepwise selection.\\
-                    True $\rightarrow$ The k+1 model will be identical but with one more predictor
+              \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k + 1)-variable model identified by forward stepwise selection.\\
+                    True $\rightarrow$ The k + 1 model will be identical but with one more predictor
               \item The predictors in the k-variable model identified by back-ward stepwise are a subset of the predictors in the (k + 1)-variable model identified by backward stepwise selection.\\
-                    True $\rightarrow$ The k+1 model will be identical but with one less predictor
+                    True $\rightarrow$ The k + 1 model will be identical but with one less predictor
               \item The predictors in the k-variable model identified by backward stepwise are a subset of the predictors in the (k + 1)-variable model identified by forward stepwise selection.\\
                     False $\rightarrow$ The forward and backward selections will have different start points and paths. Not always true, but has the chance of being true
-              \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k +1)-variable model identified by backward stepwise selection.\\
+              \item The predictors in the k-variable model identified by forward stepwise are a subset of the predictors in the (k + 1)-variable model identified by backward stepwise selection.\\
                     False $\rightarrow$ The forward and backward selections will have different start points and paths. Not always true, but has the chance of being true
               \item The predictors in the k-variable model identified by best subset are a subset of the predictors in the (k + 1)-variable model identified by best subset selection.\\
                     False $\rightarrow$ Will not always have the best subset variable of size k+1.
