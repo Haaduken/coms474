@@ -63,6 +63,11 @@ Recall that there are many factors that affect how well a fitted model will perf
               \includegraphics[width=1\textwidth]{sinosodial-1000.png}
               \includegraphics[width=1\textwidth]{sinosodial-MSE-1000.png}
           \end{center}
+          \begin{enumerate}[label=(\roman*)]
+              \item When looking at the model of sinosodial with 15 samples, a few things can be noticed, in the instance that I have attached, polynomial models 5 and 6 are great instances of overfitting the data and can be deemed as such as they hit or get very close almost every test data point in the set of 15 available for it to hit, while polynomial models 0 and 1 are showing processing that there is a signifigant amount of error in the system and underfits the data by linearly cutting through it all, almost averaging it out for model 1.
+              \item When looking at the sinusoidal with 1000 samples, determining how something fits becomes more difficult, visually at least, it can be said that polynomial models 0 and 1 once again severely underfit the data as ignore many attributes of the data, labeling it as error. However, the higher polynomial models like 4 and 5, but more importantly 6, it is harder to determine if they are overfitting or not due to the sheer number of data points it contains, however to truly overfit, the flexibility would need to be unreasonably high.
+          \end{enumerate}
+          \pagebreak
     \item Repeat (a) with a linear $f(X)$.
           \begin{center}
               \includegraphics[width=1\textwidth]{linear-15.png}
@@ -70,7 +75,12 @@ Recall that there are many factors that affect how well a fitted model will perf
               \includegraphics[width=1\textwidth]{linear-1000.png}
               \includegraphics[width=1\textwidth]{linear-MSE-1000.png}
           \end{center}
-    \item Now discuss similarities and differences between the results of (a) and (b), given that the main difference was $f(X)$ (which for (a) was not only non-linear in $X$ but also not in the model class we were fitting with, while for (b) it was linear and in the model class).
+          \begin{enumerate}[label=(\roman*)]
+              \item When looking at the linear model with 15 samples, the models that have a polynomial try to fit all the data, ignoring much of the variance and taking them as true data points which when compared to the true model, we know is not what it should be doing. However the models that are lower in polynomial fit the data better, especially the first order model, as it is quite close.
+              \item The linear model with 1000 samples is a bit more difficult to interpret, however one thing we can notice immeditely is that most models look fairly linear and lean the same way as the base model. We again encounter the issue that overfitting this much data would be harder, but as is, all models above base 0 closely match each other and all fall within the margins set by the training MSE and testing MSE which is quite impresive when compared to the previous 3 models.
+          \end{enumerate}
+    \item Now discuss similarities and differences between the results of (a) and (b), given that the main difference was $f(X)$ (which for (a) was not only non-linear in $X$ but also not in the model class we were fitting with, while for (b) it was linear and in the model class).\\
+
 \end{enumerate}
 %--/Paper--
 
