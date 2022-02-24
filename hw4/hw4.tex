@@ -95,7 +95,13 @@ What is the value of the intercept $\beta^*_0$ in the ordinary least squares sol
         (\beta^*_0, \beta^*_1, \dots, \beta^*_p) = \underset{(\beta^*_0, \beta^*_1, \dots, \beta^*_p)\epsilon\mathbb{R}^{p+1}}{\text{arg min}}\frac{1}{n}\sum_{i = 1}^{n} \bigg( Y(i) - \beta_0 \sum_{j=1}^p\beta_jX_j(i)\bigg) ^2
     \]
 \end{center}
-when the features ${X_1, \dots, X_p}$ are all centered? (e.g. $\sum_{i=1}^nX_j(i) = 0$ for $ j = 1, \dots, p$). (You do not need to use a second derivative test or solve for \{$\beta_1^*, \dots, \beta_p^*$\}, just use the first derivative test $0 = \frac{\partial}{\partial\beta_0}$ MSE).
+when the features ${X_1, \dots, X_p}$ are all centered? (e.g. $\sum_{i=1}^nX_j(i) = 0$ for $ j = 1, \dots, p$). (You do not need to use a second derivative test or solve for \{$\beta_1^*, \dots, \beta_p^*$\}, just use the first derivative test $0 = \frac{\partial}{\partial\beta_0}$ MSE).\\\\
+
+Confusion on what to exactly do or if the correct thing was done, as when the first derivative is taken for the given equation we get
+
+$\frac{\partial}{\partial\beta_0} = \frac{2}{n}\sum_{i = 1}^{n} \bigg( Y(i) - \beta_0 \sum_{j=1}^p\beta_jX_j(i)\bigg)$
+
+and if we go with the fact that $\sum_{i=1}^nX_j(i) = 0$ for $ j = 1, \dots, p$ then that would result in just $\frac{2}{n}\sum_{i = 1}^{n} Y(i)$, but not sure if this is the correct steps to be taking or if completely off track.
 
 %--/Paper--
 
