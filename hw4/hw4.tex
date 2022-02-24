@@ -49,16 +49,16 @@ Suppose you use lasso fit to a linear model for a data set. Let $\beta^*(\lambda
 
 \subsection{Part A}
 Describe how the \underline{training} MSE changes as a function of $\lambda$, including $\lambda = 0$ and as $\lambda \rightarrow \infty$\\\\
-The training MSE of the function $\beta^*(\lambda)$ would return the least squares fit when $\lambda = 0$. The value output does change though as $\lambda$ grows in size, with the upper bound of $\infty$ being the most ideal constant that could be supplied to the equation, this is because at \emph{some} point, $\lambda$ will hit the absolute minimium of the function, which would be within the range of $0\rightarrow\infty$.
+The training MSE of the function $\beta^*(\lambda)$ would return the least squares fit when $\lambda = 0$. The value output does change though as $\lambda$ grows in size, with the upper bound of $\infty$ being the most ideal constant that could be supplied to the equation, this is because at \emph{some} point, $\lambda$ will hit the absolute minimium of the function, which would be within the range of $0\rightarrow\infty$ The training MSE would be higher overall.
 
 \subsection{Part B}
 Describe how the \underline{hold-out} MSE changes as a function of $\lambda$, including $\lambda = 0$ and as $\lambda \rightarrow \infty$\\\\
-The hold-out MSE \emph{should} look similar to the training MSE and by applying a similar set of logic, the models should look relatively the same as it is from the same overall set of data. The resulting model should have an absolute minimium which would indicate what the most ideal $\lambda$ would be. This value should be, if not exactly, then very close to where the training set's absolute minimium should be at. The image I have attached below is from the notes and displays what the models could look like as an example.
+The hold-out MSE \emph{should} look similar to the training MSE and by applying a similar set of logic, the models should look relatively the same as it is from the same overall set of data. The resulting model should have an absolute minimium which would indicate what the most ideal $\lambda$ would be. This value should be, if not exactly, then very close to where the training set's absolute minimium should be at. The image I have attached below is from the notes and displays what the models could look like as an example. A very large $\lambda$ would cause the model to jump signifigantly. The hold-out MSE would be lower overall.
 \begin{center}\includegraphics[width=1\textwidth]{p1.b.png}\end{center}
 
 \subsection{Part C}
 Describe $\beta^*(0)$.\\\\
-When initially at $\beta^*(0)$, the function's value that it would return would simply be the L.S.F (least squares fit) value.
+When initially at $\beta^*(0)$, the function's value that it would return would simply be the L.S.F (least squares fit) value. The $\beta$ changes as the $\lambda$ changes as the solver tries to keep track of the penalties
 
 \subsection{Part D}
 Describe what happens to $\beta^*(0)$ as $\lambda$ grows.\\\\
@@ -92,17 +92,30 @@ for feature $X_4$ are $\begin{bmatrix} 5 \\0\\1\end{bmatrix}$, which has a mean 
 What is the value of the intercept $\beta^*_0$ in the ordinary least squares solution, i.e.
 \begin{center}
     \[
-        (\beta^*_0, \beta^*_1, \dots, \beta^*_p) = \underset{(\beta^*_0, \beta^*_1, \dots, \beta^*_p)\epsilon\mathbb{R}^{p+1}}{\text{arg min}}\frac{1}{n}\sum_{i = 1}^{n} \bigg( Y(i) - \beta_0 \sum_{j=1}^p\beta_jX_j(i)\bigg) ^2
+        (\beta^*_0, \beta^*_1, \dots, \beta^*_p) = \underset{(\beta^*_0, \beta^*_1, \dots, \beta^*_p)\epsilon\mathbb{R}^{p+1}}{\text{arg min}}\frac{1}{n}\sum_{i = 1}^{n} \bigg( Y(i) - \beta_0 - \sum_{j=1}^p\beta_jX_j(i)\bigg) ^2
     \]
 \end{center}
 when the features ${X_1, \dots, X_p}$ are all centered? (e.g. $\sum_{i=1}^nX_j(i) = 0$ for $ j = 1, \dots, p$). (You do not need to use a second derivative test or solve for \{$\beta_1^*, \dots, \beta_p^*$\}, just use the first derivative test $0 = \frac{\partial}{\partial\beta_0}$ MSE).\\\\
 
-Confusion on what to exactly do or if the correct thing was done, as when the first derivative is taken for the given equation we get
-
-$\frac{\partial}{\partial\beta_0} = \frac{2}{n}\sum_{i = 1}^{n} \bigg( Y(i) - \beta_0 \sum_{j=1}^p\beta_jX_j(i)\bigg)$
-
-and if we go with the fact that $\sum_{i=1}^nX_j(i) = 0$ for $ j = 1, \dots, p$ then that would result in just $\frac{2}{n}\sum_{i = 1}^{n} Y(i)$, but not sure if this is the correct steps to be taking or if completely off track.
-
+\begin{center}
+    Starting with taking the partial\\
+    $\frac{\partial}{\partial\beta_0} = \frac{2}{n}\sum_{i = 1}^{n} \bigg( Y(i) - \beta_0 - \sum_{j=1}^p\beta_jX_j(i)\bigg) = 0$\\
+    We then split up the summation of $B_j$ and $X_j$\\
+    $\frac{2}{n}\sum_{i = 1}^{n} \bigg( Y(i) - \beta_0 - \sum_{j=1}^p\beta_j * \sum_{j=1}^pX_j(i)\bigg) = 0$\\
+    We also have that $\sum_{i=1}^nX_j(i) = 0$ for $ j = 1, \dots, p$ which would lead to\\
+    $\frac{2}{n}\sum_{i = 1}^{n} ( Y(i) - \beta_0 - \sum_{j=1}^p\beta_j * 0) = 0$\\
+    $\frac{2}{n}\sum_{i = 1}^{n} ( Y(i) - \beta_0 - 0) = 0$\\
+    $\frac{2}{n}\sum_{i = 1}^{n} (Y(i) - \beta_0) = 0$\\
+    Next we multiply each side by $\frac{2}{n}$ to get\\
+    $\sum_{i = 1}^{n} (Y(i) - \beta_0) = 0$\\
+    From here we take $\beta_0$ out of the summation\\
+    $\sum_{i = 1}^{n} (Y(i)) - \beta_0 * n = 0$\\
+    We can next move it over to the other side of the equation\\
+    $\sum_{i = 1}^{n} (Y(i)) = \beta_0 * n $\\
+    Divide by $n$...\\
+    $\frac{\sum_{i = 1}^{n} (Y(i))}{n} = \beta_0$
+\end{center}
+This end result of $\beta_0 = \frac{\sum_{i = 1}^{n} (Y(i))}{n}$ or in other words, when $\beta_0$ is equal to the average value of all the samples is where the intercept would be at for the model when all of the features are centred.
 %--/Paper--
 
 \end{document}
