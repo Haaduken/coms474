@@ -1,0 +1,87 @@
+\documentclass[12pt]{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{cancel}
+\usepackage[margin=4cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\course}{COMS 474}
+
+\setcounter{secnumdepth}{0} % Disable section/subsection numbering
+\hyphenpenalty 10000 % Prevent words from being broken over multiple lines
+\exhyphenpenalty 10000 % Prevent words from being broken over multiple lines
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\title{ \course \\\large Homework 5 }
+\author{ Haadi Majeed }
+\date{Spring 2022}
+
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\lhead{\course}
+\chead{Haadi Majeed}
+\rhead{Page \thepage}
+
+\begin{document}
+\maketitle
+\pagebreak
+
+% Optional TOC
+%\tableofcontents
+\pagebreak
+\section{Problem 1}
+20 Points\\
+Suppose you are predicting a feature $Y$ that can take on three values $Y \epsilon \{+1, +2, +3\}$ and you can predict $Y$ using two features $X_1$ and $X_2$. You decide to try LDA (i.e. we will estimate a different mean for each class but estimate a common covariance matrix). SUppose that the (common) covariance matrix you estimate is
+\begin{center}
+    $\sum_{+1} = \sum_{+2} = \sum_{+3} = \begin{bmatrix} 1 &0\\0 & 1\end{bmatrix}$
+\end{center}
+the priors are equal
+\begin{center}
+    $\pi_{+1} = \pi_{+2} = \pi_{+3} = \frac{1}{3}$
+\end{center}
+and the mean vectors are
+\begin{center}
+    $\mu_{+1} = \begin{bmatrix} -1\\-1\end{bmatrix}\tab\mu_{+2} = \begin{bmatrix} 1\\1\end{bmatrix}\tab\mu_{+3} = \begin{bmatrix} -1\\11\end{bmatrix}$
+\end{center}
+
+\subsection{A}
+\subsubsection{Find the equation for the LDA boundry between $Y = +1$ and $Y = +2$}
+
+\subsection{B}
+\subsubsection{Find the equation for the LDA boundry between $Y = +1$ and $Y = +3$}
+
+\subsection{C}
+\subsubsection{Find the equation for the LDA boundry between $Y = +2$ and $Y = +3$}
+
+\subsection{D}
+\subsubsection{Make a plot with $x_1$ along the horizontal axis, $x_2$ along the vertical axis and draw each of the LDA boundries you found. For each region, write the class label (e.g. "+2") that would be chosen for a new sampel that appeared in that region.}
+
+\subsection{E}
+\subsubsection{If you wanted tou se Naive Bayes in addition to LDA (thus still assuming Gaussianity) for this problem explain what it would change (if anything)}
+
+
+\pagebreak
+\section{Problem 2}
+15 Points\\
+You intern for a university's athletics program and are tasked with predicting whether their rugby team will make it to the playoffs (Y $\epsilon$ \{yes, no\}) based on their  score in the first game of the season, X.\\\\
+You collect data and estimate that for the years that the rugby team made it to the playoffs, their score in the first game had a mean of $\hat{\mu}_{yes} \approx 30$ and variance $\hat{\sigma}^2_{yes} \approx 50$. For the years that they did not make it to the playoffs, their score in the first game had a mean of $\hat{\mu}_{no} \approx 15$ and variance $\hat{\sigma}^2_{no} \approx 80$. The team made it to the playoffs $30\%$ of the years.\\\\
+This year, they scored 20 points in their first game. Predict the probability that the team will make it to the playoffs. Use Bayes' theorem, and model the distribution of the first game scores, conditioned on whether or not they make it to the playoffs that year, as Gaussian.
+
+
+
+%--/Paper--
+
+\end{document}
