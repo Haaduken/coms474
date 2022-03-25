@@ -60,19 +60,152 @@ and the mean vectors are
 
 \subsection{A}
 \subsubsection{Find the equation for the LDA boundry between $Y = +1$ and $Y = +2$}
+Using figures 4.24 and figure 4.25 from the textbook\\
+\begin{center}
+    \includegraphics{fig4.24.png}\\
+    \includegraphics{fig4.25.png}
+\end{center}
+\[
+    \delta_{+1}(x) = \delta_{+2}(x)
+\]
+\[
+    x^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} -1 \\ -1\end{bmatrix} - \frac{1}{2}\begin{bmatrix} -1 \\ -1\end{bmatrix}^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} -1 \\ -1\end{bmatrix}
+    =
+    x^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} 1 \\ 1\end{bmatrix} - \frac{1}{2}\begin{bmatrix} 1 \\ 1\end{bmatrix}^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} 1 \\ 1\end{bmatrix}
+\]
+\[
+    x^T\begin{bmatrix} -1 \\ -1\end{bmatrix}-\frac{1}{2}\begin{bmatrix}2\end{bmatrix}
+    =
+    x^T\begin{bmatrix} 1 \\ 1\end{bmatrix}-\frac{1}{2}\begin{bmatrix}2\end{bmatrix}
+\]
+\[
+    \begin{bmatrix} x_1 \\ x_2\end{bmatrix}^T\begin{bmatrix} -1 \\ -1\end{bmatrix}-1
+    =
+    \begin{bmatrix} x_1 \\ x_2\end{bmatrix}^T\begin{bmatrix} 1 \\ 1\end{bmatrix} -1
+\]
+\[
+    \begin{bmatrix} x_1 & x_2\end{bmatrix}\begin{bmatrix} -1 \\ -1\end{bmatrix}-1
+    =
+    \begin{bmatrix} x_1 & x_2\end{bmatrix}\begin{bmatrix} 1 \\ 1\end{bmatrix}-1
+\]
+\[
+    \begin{bmatrix} -x_1 & -x_2\end{bmatrix}-1
+    =
+    \begin{bmatrix} x_1 & x_2\end{bmatrix}-1
+\]
+\[
+    2\begin{bmatrix} x_1 & x_2\end{bmatrix} = 0
+\]
+\[
+    \begin{bmatrix} x_1 & x_2\end{bmatrix} = 0
+\]
+\[
+    x_1 + x_2 = 0
+\]
 
 \subsection{B}
 \subsubsection{Find the equation for the LDA boundry between $Y = +1$ and $Y = +3$}
+\[
+    \delta_{+1}(x) = \delta_{+3}(x)
+\]
+\[
+    x^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} -1 \\ -1\end{bmatrix} - \frac{1}{2}\begin{bmatrix} -1 \\ -1\end{bmatrix}^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} -1 \\ -1\end{bmatrix}
+    =
+    x^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} -1 \\ 1\end{bmatrix} - \frac{1}{2}\begin{bmatrix} -1 \\ 1\end{bmatrix}^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} -1 \\ 1\end{bmatrix}
+\]
+\[
+    x^T\begin{bmatrix} -1 \\ -1\end{bmatrix}-\frac{1}{2}\begin{bmatrix}2\end{bmatrix}
+    =
+    x^T\begin{bmatrix} -1 \\ 1\end{bmatrix}-\frac{1}{2}\begin{bmatrix}2\end{bmatrix}
+\]
+\[
+    \begin{bmatrix} x_1 \\ x_2\end{bmatrix}^T\begin{bmatrix} -1 \\ -1\end{bmatrix}-1
+    =
+    \begin{bmatrix} x_1 \\ x_2\end{bmatrix}^T\begin{bmatrix} -1 \\ 1\end{bmatrix} -1
+\]
+\[
+    \begin{bmatrix} x_1 & x_2\end{bmatrix}\begin{bmatrix} -1 \\ -1\end{bmatrix}-1
+    =
+    \begin{bmatrix} x_1 & x_2\end{bmatrix}\begin{bmatrix} -1 \\ 1\end{bmatrix}-1
+\]
+\[
+    \begin{bmatrix} -x_1 & -x_2\end{bmatrix}-1
+    =
+    \begin{bmatrix} -x_1 & x_2\end{bmatrix}-1
+\]
+\[
+    2\begin{bmatrix} 0 & x_2\end{bmatrix} = 0
+\]
+\[
+    \begin{bmatrix} 0 & x_2\end{bmatrix} = 0
+\]
+\[
+    x_2 = 0
+\]
 
 \subsection{C}
 \subsubsection{Find the equation for the LDA boundry between $Y = +2$ and $Y = +3$}
 
+\[
+    \delta_{+2}(x) = \delta_{+3}(x)
+\]
+\[
+    x^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} 1 \\ 1\end{bmatrix} - \frac{1}{2}\begin{bmatrix} 1 \\ 1\end{bmatrix}^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} 1 \\ 1\end{bmatrix}
+    =
+    x^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} -1 \\ 1\end{bmatrix} - \frac{1}{2}\begin{bmatrix} -1 \\ 1\end{bmatrix}^T\begin{bmatrix} 1 & 0\\ 0 & 1\end{bmatrix}\begin{bmatrix} -1 \\ 1\end{bmatrix}
+\]
+\[
+    x^T\begin{bmatrix} 1 \\ 1\end{bmatrix}-\frac{1}{2}\begin{bmatrix}2\end{bmatrix}
+    =
+    x^T\begin{bmatrix} -1 \\ 1\end{bmatrix}-\frac{1}{2}\begin{bmatrix}2\end{bmatrix}
+\]
+\[
+    \begin{bmatrix} x_1 \\ x_2\end{bmatrix}^T\begin{bmatrix} 1 \\ 1\end{bmatrix}-1
+    =
+    \begin{bmatrix} x_1 \\ x_2\end{bmatrix}^T\begin{bmatrix} -1 \\ 1\end{bmatrix} -1
+\]
+\[
+    \begin{bmatrix} x_1 & x_2\end{bmatrix}\begin{bmatrix} 1 \\ 1\end{bmatrix}-1
+    =
+    \begin{bmatrix} x_1 & x_2\end{bmatrix}\begin{bmatrix} -1 \\ 1\end{bmatrix}-1
+\]
+\[
+    \begin{bmatrix} x_1 & x_2\end{bmatrix}-1
+    =
+    \begin{bmatrix} -x_1 & x_2\end{bmatrix}-1
+\]
+\[
+    -2\begin{bmatrix} x_1 & 0\end{bmatrix} = 0
+\]
+\[
+    \begin{bmatrix} x_1 & 0\end{bmatrix} = 0
+\]
+\[
+    x_1 = 0
+\]
+
 \subsection{D}
 \subsubsection{Make a plot with $x_1$ along the horizontal axis, $x_2$ along the vertical axis and draw each of the LDA boundries you found. For each region, write the class label (e.g."+2") that would be chosen for a new sample that appeared in that region.}
+\textbf{Note: the vertical axis is $x_2$ and the horizontal is $x_1$}
+\begin{center}
+    \includegraphics{p1.d.png}
+\end{center}
+With the Maroon representing $Y = +1$, Pink representing $Y = +2$, and the Yellow representing $Y= +3$.
+With the following points being used to evaluate which had a greater value out of the trio:
+\[\begin{matrix}
+        x_1 & x_2 \\
+        1   & 1   \\
+        2   & -1  \\
+        1   & -2  \\
+        -2  & -2  \\
+        -2  & 1   \\
+        -1  & 2   \\
+    \end{matrix}\]
 
 \subsection{E}
 \subsubsection{If you wanted to use Naive Bayes in addition to LDA (thus still assuming Gaussianity) for this problem explain what it would change (if anything)}
-Bayes can be linear or curved, LDA can only be linear
+Bayes can be linear or curved, LDA can only be linear. If we were to use both and determine how the boundaries would change we could apply the fact the Bayes does not need independent covariance to the fact that LDA \emph{does} require it, therefore gaining the benefits of LDA's linear approach while lacking independent covariance from the set.
+
 
 
 \pagebreak
