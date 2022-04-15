@@ -69,39 +69,45 @@ Y (mapped to \{-1, +1\}). There is one feature X that can be used for prediction
 \end{center}
 \subsection{A}
 Draw the scatter plot of the data by hand.\\
-
+\includegraphics[width=1\textwidth]{p1.a.jpg}
 \subsection{B}
-Sketch the prediction function $\hat{Y}(x)$ for the $k = 1$ nearest neighbour classifier on the scatter plot. Briefly explain your process.
-
+Sketch the prediction function $\hat{Y}(x)$ for the $k = 1$ nearest neighbour classifier on the scatter plot. Briefly explain your process.\\
+\includegraphics[width=1\textwidth]{p1.b.jpg}
 \subsection{C}
-Sketch the prediction function $\hat{Y}(x)$ for the $k = 3$ nearest neighbour classifier on the scatter plot. Briefly explain your process.
+Sketch the prediction function $\hat{Y}(x)$ for the $k = 3$ nearest neighbour classifier on the scatter plot. Briefly explain your process.\\
+\includegraphics[width=1\textwidth]{p1.c.jpg}
 
 \subsection{D}
-Sketch the prediction function $\hat{Y}(x)$ for the $k = 5$ nearest neighbour classifier on the scatter plot. Briefly explain your process.
+Sketch the prediction function $\hat{Y}(x)$ for the $k = 5$ nearest neighbour classifier on the scatter plot. Briefly explain your process.\\
+\includegraphics[width=1\textwidth]{p1.d.jpg}
 
 \subsection{E}
-Describe what would happen if you tried to use the max margin classifier for this data set.
+Describe what would happen if you tried to use the max margin classifier for this data set.\\
+For Max Margin Classifier, if the data is separable, it would result in two parallel lines at $y = +1$ and $y = -1$ that are equally separable.
 
-
+\pagebreak
 \section{Problem 2}
  [20 points; 4 each A-E]\\
 For this problem you will fit classifiers to the same data sets you used in the last homework.
 \subsection{A}
-Change the classifiers used to the following nearest neighbour classifiers:\\
-\begin{itemize}
-    \item 1-NN
-    \item 10-NN
-    \item 10-NN with distance-based weights (include argument weights='distance')
-    \item Radius based neighbour classifiers for radii 3, 4, and 6 (uniform weights)
-    \item Radius based neighbour classifiers for radii 3, 4, and 6 with distance-based weights
-\end{itemize}
+Copy of Plot:\\
+\includegraphics[width=1\textwidth]{p2.a.png}
 
 \subsection{B}
+Among the k-nearest neighbour classifiers, do the decision regions seem largely similar or quite different? If quite different, briefly describe the differences.\\\\
+The decision regions are largely similar since the radius changes only a little bit for each iteration
 
+\subsection{C}
+Among the radius based neighbours classifiers, do the decision regions seem largely similar or quite different? If quite different, briefly describe the differences\\\\
+The decision regions that are based of the unweighted radii, they vary significantly when looking at the second and third sets of data, however for all three sets of data for the weighted radii they are very similar bar the outer boarders of the graph on the second set of data.
 
+\subsection{D}
+Are the decision regions of the k-nearest neighbour classifiers and the fixed-radius nearest neighbour classifiers largely similar or quite different? If quite different, briefly describe the differences.\\\\
+The decision regions are very similar with only signifiant changes on the boundaries of the graph
 
-
-
+\subsection{E}
+Lastly, briefly discuss which, if any, of the classifiers used in HW7 had similar decision regions to the ones here across all or some of the data sets.\\\\
+The support vector that uses a radial basis looks similar, but the most likely reason is because its using a radial basis over a linear one instead. The shape of the models have resemblance, however that is in the nature of classifiers chosen. The others have little to no similarities at all
 
 
 
