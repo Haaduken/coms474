@@ -1,0 +1,130 @@
+\documentclass[12pt]{article}
+
+\usepackage[pdftex]{graphicx}
+\usepackage{cancel}
+\usepackage[margin=4cm]{geometry}
+\usepackage[hidelinks]{hyperref}
+\usepackage{fancyhdr}
+\usepackage{amsmath}
+\usepackage{amsfonts}
+\usepackage{dirtytalk}
+\usepackage{parskip}
+
+\newcommand\tab[1][1cm]{\hspace*{#1}}
+\newcommand{\HRule}{\rule{\linewidth}{0.5mm}}
+\newcommand{\course}{COMS 474}
+
+\setcounter{secnumdepth}{0} % Disable section/subsection numbering
+\hyphenpenalty 10000 % Prevent words from being broken over multiple lines
+\exhyphenpenalty 10000 % Prevent words from being broken over multiple lines
+
+% Margins
+\topmargin=-0.45in
+\evensidemargin=0in
+\oddsidemargin=0in
+\textwidth=6.5in
+\textheight=9.0in
+\headsep=0.25in
+\title{ \course \\\large Homework 9 }
+\author{ Haadi Majeed }
+\date{Spring 2022}
+
+
+\pagestyle{fancy}
+\fancyhead{}
+\fancyfoot{}
+\lhead{\course}
+\chead{Haadi Majeed}
+\rhead{Page \thepage}
+
+\begin{document}
+\maketitle
+\pagebreak
+
+% Optional TOC
+%\tableofcontents
+\pagebreak
+\section{Problem 1}
+ [26 Points]\\
+Suppose that we have a data set with four samples. You calculate the pair-wise distances as\\
+\begin{center}
+    \begin{tabular}{c c c c c}
+        {}    & \{1\} & \{2\} & \{3\} & \{4\} \\
+        \{1\} &       & 0.3   & 0.4   & 0.7   \\
+        \{2\} & 0.3   &       & 0.5   & 0.8   \\
+        \{3\} & 0.4   & 0.5   &       & 0.45  \\
+        \{4\} & 0.7   & 0.8   & 0.45  &
+    \end{tabular}\\
+    \emph{dist}$(C_1, C_2) := \underset{a\epsilon C_1, b\epsilon C_2}{min} dist(a,b)$\\
+    \emph{dist}$(C_1, C_2) := \underset{a\epsilon C_1, b\epsilon C_2}{max} dist(a,b)$
+\end{center}
+
+\subsection{A}
+Sketch the dendrogram that results from hierarchically clustering these four samples using complete linkage. Indicate on the plot the height (distance) at which each fusion occurs, as well as the samples corresponding to each leaf in the dendrogram.\\\\
+beans
+
+
+\subsection{B}
+Repeat part (a) for single linkage clustering.\\\\
+beans
+
+
+\subsection{C}
+Suppose that we cut the dendrogram obtained in (a) such that two clusters result. Which samples are in each cluster?\\\\
+beans
+
+
+\subsection{D}
+Suppose that we cut the dendrogram obtained in (b) such that two clusters result. Which samples are in each cluster?\\\\
+beans
+
+
+\subsection{E}
+Draw a dendrogram that is equivalent to the dendrogram in (a) with a different horizontal arrangement for the samples.\\\\
+beans
+
+
+
+\section{Problem 2}
+\subsection{A}
+Make a scatter-plot\\\\
+beans
+
+
+\subsection{B}
+For n\_clusters\=range(1,16), apply K-means clustering. Make a scatter plot for each. You only need to include 3 of them in your homework submission. Select the three pictures whose clusters you think look the best.\\\\
+beans
+
+
+
+\subsection{C}
+For bottom-up hierarchical clustering (aka 'Agglomerative Clustering'), make a dendrogram using 'single' linkage.\\\\
+beans
+
+
+
+\subsection{D}
+Manually select and report a distance threshold for single linkage. Look for regions in the dendrogram where there are few mergers (eg a big vertical gap in distance threshold between mergers). Use that to make a scatter plot of the data clustered based on that threshold.\\\\
+
+beans
+
+
+\subsection{E}
+Repeat the previous two steps, using 'average' linkage.\\\\
+beans
+
+
+
+\subsection{F}
+Repeat the previous two steps, using 'complete' linkage.\\\\
+beans
+
+
+
+\subsection{G}
+In a few sentences for each clustering method (k-means, single linkage aggl., average linkage aggl., and complete linkage aggl.), comment on the clusters found by the methods and how they compared or differed. Which clustering method do you think resulted in the best clusters for this data set and why?\\\\
+
+Beans
+
+%--/Paper--
+\end{document}
